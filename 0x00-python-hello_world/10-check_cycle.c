@@ -11,7 +11,7 @@ int check_cycle(listint_t *list)
 
 	single = list;
 	dubble = list->next;
-	while (dubble->next != NULL)
+	while (single->next != NULL && dubble->next != NULL)
 	{
 		if (single->next == dubble->next)
 			return (1);
