@@ -13,7 +13,7 @@ int check_cycle(listint_t *list)
 	dubble = list->next;
 	while (single->next != NULL && dubble->next != NULL)
 	{
-		if (single == dubble)
+		if (single == dubble->next)
 			return (1);
 		single = single->next;
 		dubble = dubble->next->next;
