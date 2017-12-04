@@ -12,13 +12,13 @@ int check_cycle(listint_t *list)
 	if (list == NULL)
 		return (0);
 	single = list;
-	dubble = list;
-	if (single == NULL || dubble == NULL)
-		return (0);
-	while (single->next != NULL && dubble->next->next != NULL)
+	dubble = list->next;
+	while (single->next != NULL && dubble->next != NULL)
 	{
 		single = single->next;
 		dubble = dubble->next->next;
+		if (single == NULL || dubble == NULL)
+			return (0);
 		if (single == dubble)
 			return (1);
 	}
