@@ -17,10 +17,10 @@ int check_cycle(listint_t *list)
 		return (0);
 	while (single->next != NULL && dubble->next != NULL)
 	{
-		if (single == dubble)
-			return (1);
 		single = single->next;
 		dubble = dubble->next->next;
+		if (single == dubble)
+			return (1);
 	}
-	return (0);
+       	return (0);
 }
