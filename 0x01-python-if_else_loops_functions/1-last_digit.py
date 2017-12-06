@@ -8,8 +8,8 @@ elif number < 0:
     newnum = number * -1
     newnum = newnum % 10
     newnum = -newnum
-else:
-    newnum = number
+elif number == 0:
+    newnum = 0
 print('{:d}'.format(newnum), '', end="")
 if newnum > 5:
     print('and is greater than 5')
