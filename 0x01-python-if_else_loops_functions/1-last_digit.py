@@ -2,14 +2,12 @@
 import random
 number = random.randint(-10000, 10000)
 print('Last digit of', '{:d}'.format(number), 'is ', end="")
-if number > 0:
+if number >= 0:
     newnum = number % 10
 elif number < 0:
     newnum = number * -1
     newnum = newnum % 10
     newnum = -newnum
-elif number == 0:
-    newnum = 0
 print('{:d}'.format(newnum), '', end="")
 if newnum > 5:
     print('and is greater than 5')
