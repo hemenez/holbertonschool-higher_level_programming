@@ -10,8 +10,7 @@ elif number < 0:
     newnum = -newnum
 else:
     newnum = number
-newnum = int(newnum)
-print(newnum, '', end="")
+print('{:d}'.format(newnum), '', end="")
 if newnum > 5:
     print('and is greater than 5')
 elif newnum == 0:
