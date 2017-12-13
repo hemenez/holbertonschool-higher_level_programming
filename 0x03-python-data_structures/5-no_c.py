@@ -11,5 +11,5 @@ def no_c(my_string):
         yi = new_string.index("c")
         del new_string[yi]
         removedstr = new_string
-    renovated = ''.join(map(str,removedstr))
+    renovated = ''.join(map(str, removedstr))
     return renovated
