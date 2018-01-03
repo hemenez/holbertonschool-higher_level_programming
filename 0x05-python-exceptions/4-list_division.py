@@ -21,6 +21,3 @@ def list_division(my_list_1, my_list_2, list_length):
                 new_list.append(result)
                 print('wrong type')
         return new_list
-#        for i, j in zip(my_list_1, my_list_2):
-#           result = i / j
-#           new_list.append(result)
