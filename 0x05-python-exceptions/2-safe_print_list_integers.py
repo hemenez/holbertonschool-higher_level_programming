@@ -1,9 +1,6 @@
 #!/usr/bin/python3
 def safe_print_list_integers(my_list=[], x=0):
     count = 0
-    length = 0
-    for hi in my_list:
-        length = length + 1
     if my_list is None:
         return count
     else:
