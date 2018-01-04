@@ -5,28 +5,9 @@ class Square:
     returns the area size of the square. Retrieves value to set size of square.
     Class also has method of printing the square represented by a hashtag. The
     class also has a method of printing spaces given a certain position"""
-    def __init__(self, __size=0, __position=(0, 0)):
-        self.__size = __size
-        self.__position = __position
-        try:
-            position = list(__position)
-            first = position[0]
-            second = position[1]
-            first = int(first)
-            second = int(second)
-            if first < 0 or second < 0:
-                raise TypeError
-            position = tuple(__position)
-            if type(__size) is not int:
-                raise TypeError
-            if __size < 0:
-                raise ValueError
-        except TypeError:
-            print('position must be a tuple of 2 positive integers')
-            raise
-        except ValueError:
-            print('size must be >= 0', end="")
-            raise
+    def __init__(self, size=0, position=(0, 0)):
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -55,7 +36,9 @@ class Square:
     @position.setter
     def position(self, value):
         try:
-            if value < 0 or type(value) is not int:
+            if not isinstance(value, tuple):
+                raise TypeError
+            if value[0] < 0 or value[1] < 0:
                 raise TypeError
             else:
                 self.__position = value
@@ -64,18 +47,18 @@ class Square:
             raise
 
     def area(self):
-        return int(self.__size) ** 2
+        return self.size ** 2
 
     def my_print(self):
-        if self.__size == 0:
+        if self.size == 0:
             print()
         else:
-            x = self.__position
+            x = self.position
             a, b = x
             if b is not 0:
                 print(' '*b)
-            for i in range(self.__size):
+            for i in range(self.size):
                 print(' '*a, end="")
-                for j in range(self.__size):
+                for j in range(self.size):
                     print('#', end="")
                 print()
