@@ -40,6 +40,8 @@ class Square:
                 raise TypeError
             if value[0] < 0 or value[1] < 0:
                 raise TypeError
+            if len(value) > 2:
+                raise TypeError
             else:
                 self.__position = value
         except TypeError:
