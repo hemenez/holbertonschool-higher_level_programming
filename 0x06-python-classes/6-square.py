@@ -23,10 +23,10 @@ class Square:
             else:
                 self.__size = value
         except TypeError:
-            print('size must be an integer')
+            print('size must be an integer', end="")
             raise
         except ValueError:
-            print('size must be >= 0')
+            print('size must be >= 0', end="")
             raise
 
     @property
