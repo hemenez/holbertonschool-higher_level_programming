@@ -56,7 +56,7 @@ class Square:
             x = self.position
             a, b = x
             if b is not 0:
-                print(' '*b)
+                print(''*b)
             for i in range(self.size):
                 print(' '*a, end="")
                 for j in range(self.size):
