@@ -53,12 +53,10 @@ class Square:
         if self.size == 0:
             print()
         else:
-            x = self.position
-            a, b = x
-            if b is not 0:
-                print(''*b)
+            if self.position[1] is not 0:
+                print()
             for i in range(self.size):
-                print(' '*a, end="")
+                print(' ' * self.position[0], end="")
                 for j in range(self.size):
                     print('#', end="")
                 print()
