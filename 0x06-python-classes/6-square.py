@@ -23,10 +23,10 @@ class Square:
             else:
                 self.__size = value
         except TypeError:
-            print('size must be an integer', end="")
+            print('size must be an integer')
             raise
         except ValueError:
-            print('size must be >= 0', end="")
+            print('size must be >= 0')
             raise
 
     @property
@@ -43,7 +43,7 @@ class Square:
             else:
                 self.__position = value
         except TypeError:
-            print('position must be a tuple of 2 positive integers', end="")
+            print('position must be a tuple of 2 positive integers')
             raise
 
     def area(self):
