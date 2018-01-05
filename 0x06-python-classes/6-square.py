@@ -1,20 +1,18 @@
 #!/usr/bin/python3
 class Square:
-    """A class that defines the size of a square with a private attribute
-    making sure that size is of an integer value and greater than zero and
-    returns the area size of the square. Retrieves value to set size of square.
-    Class also has method of printing the square represented by a hashtag. The
-    class also has a method of printing spaces given a certain position"""
+    """A class that defines the size and position of a square"""
     def __init__(self, size=0, position=(0, 0)):
         self.size = size
         self.position = position
 
     @property
     def size(self):
+        """Retrieves value to compose square"""
         return self.__size
 
     @size.setter
     def size(self, value):
+        """Sets value of square to size"""
         if type(value) is not int:
             raise TypeError('size must be an integer')
         if value < 0:
@@ -24,10 +22,13 @@ class Square:
 
     @property
     def position(self):
+        """Retrieves value of position that square should be printed at"""
         return self.__position
 
     @position.setter
     def position(self, value):
+        """Sets value of position that square should be printed at
+        to position"""
         if type(value) is not tuple:
             raise TypeError('position must be a tuple of 2 positive integers')
         if len(value) != 2:
@@ -40,9 +41,12 @@ class Square:
             self.__position = value
 
     def area(self):
+        """Finds area of square"""
         return self.size ** 2
 
     def my_print(self):
+        """Prints square represented by hashtags for size, and spaces/newline
+        for position"""
         if self.size == 0:
             print()
         else:
