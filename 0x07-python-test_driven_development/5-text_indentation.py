@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def text_indentation(text):
-    """ """
+    """Module will print text following certain conditions"""
     if not isinstance(text, str):
         raise TypeError('text must be a string')
     if text != "":
