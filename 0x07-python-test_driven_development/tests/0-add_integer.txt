@@ -4,12 +4,9 @@ The ``add_integer`` module
 Using ``addition of two integers``
 -------------------
 
-This is an example text file in reStructuredText format.  First import
-``factorial`` from the ``example`` module:
-
     >>> add_integer = __import__('0-add_integer').add_integer
 
-Now use it:
+Running test cases:
 
     >>> add_integer(1, 2)
     3
