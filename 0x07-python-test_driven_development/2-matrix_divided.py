@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def matrix_divided(matrix, div):
-    """ """
+    """Module will divide all elements of matrix"""
     total = 0
     biggie_list = []
     if div == 0:
