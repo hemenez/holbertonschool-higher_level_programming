@@ -1,0 +1,50 @@
+The ``add_integer`` module
+======================
+
+Using ``addition of two integers``
+-------------------
+
+This is an example text file in reStructuredText format.  First import
+``factorial`` from the ``example`` module:
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Now use it:
+
+    >>> add_integer(1, 2)
+    3
+    >>> add_integer(100, -2)
+    98
+    >>> add_integer(100.3, -2)
+    98
+    >>> add_integer(4, "School")
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+    >>> add_integer('x', 'y')
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+    >>> add_integer((1, 2), 3)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+    >>> add_integer(1, (2, 3))
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+    >>> add_integer("School", 4)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+    >>> add_integer([1, 2, 3], 4)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+    >>> add_integer(1, [2, 3, 4])
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+    >>> add_integer(1, (2 * 2))
+    5
+    >>> add_integer((3 * 3), 1)
+    10
+    >>> add_integer(0, 0)
+    0
+    >>> add_integer(-3, -4)
+    -7
+    >>> add_integer(4.5, 4.5)
+    8
