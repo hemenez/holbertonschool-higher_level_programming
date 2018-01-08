@@ -4,12 +4,9 @@ The ``say_my_name`` module
 Using ``a name printer``
 -------------------
 
-This is an example text file in reStructuredText format.  First import
-``factorial`` from the ``example`` module:
-
     >>> say_my_name = __import__('3-say_my_name').say_my_name
 
-Now use it:
+Running test cases:
 
     >>> say_my_name("John", "Smith")
     My name is John Smith
