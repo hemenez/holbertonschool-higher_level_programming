@@ -65,4 +65,4 @@ class Rectangle:
     def __repr__(self):
         """Method prints object's information
         """
-        return 'Rectangle(%s, %s)' %  (self.width, self.height)
+        return 'Rectangle(%s, %s)' % (self.width, self.height)
