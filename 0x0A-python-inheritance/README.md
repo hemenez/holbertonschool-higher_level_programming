@@ -1,0 +1,1 @@
+This project is about working with class inheritance in Python.
