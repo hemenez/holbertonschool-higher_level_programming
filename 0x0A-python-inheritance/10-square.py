@@ -17,6 +17,7 @@ class BaseGeometry:
         if value <= 0:
             raise ValueError(str(self.value) + " must be greater than 0")
 
+
 class Rectangle(BaseGeometry):
     """Rectangle class inherits from BaseGeometry parent class
     """
@@ -37,6 +38,7 @@ class Rectangle(BaseGeometry):
         """Method returns area of rectangle
         """
         return self.__width * self.__height
+
 
 class Square(Rectangle):
     """Square class inherited from Rectangle parent class
