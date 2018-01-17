@@ -17,6 +17,7 @@ class BaseGeometry:
         if value <= 0:
             raise ValueError(str(self.value) + " must be greater than 0")
 
+
 class Rectangle(BaseGeometry):
     """Rectangle class inherits from BaseGeometry parent class
     """
