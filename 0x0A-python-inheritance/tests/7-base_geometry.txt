@@ -1,0 +1,31 @@
+The ``integer_validator`` module
+======================
+
+Using ``validation integers``
+-------------------
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Running test cases:
+
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("val_1", 98)
+    >>> bg.integer_validator("val_2", "hi")
+    Traceback (most recent call last):
+    TypeError: val_2 must be an integer
+    >>> bg.integer_validator("val_3", (1, 2))
+    Traceback (most recent call last):
+    TypeError: val_3 must be an integer
+    >>> bg.integer_validator("val_4", [1, 2, 3])
+    Traceback (most recent call last):
+    TypeError: val_4 must be an integer
+    >>> bg.integer_validator("val_5", 2 * 2)
+    >>> bg.integer_validator("val_6", 'c')
+    Traceback (most recent call last):
+    TypeError: val_6 must be an integer
+    >>> bg.integer_validator("val_7", -5)
+    Traceback (most recent call last):
+    ValueError: val_7 must be greater than 0
+    >>> bg.integer_validator("val_8", 0)
+    Traceback (most recent call last):
+    ValueError: val_8 must be greater than 0
