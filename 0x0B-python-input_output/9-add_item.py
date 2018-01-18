@@ -18,5 +18,4 @@ with open("add_item.json", "a+", encoding="utf-8") as my_file:
         else:
             my_list.append(sys.argv[index])
         index = index + 1
-
-save_to_json_file(my_list, filename)
+    save_to_json_file(my_list, filename)
