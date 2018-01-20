@@ -1,0 +1,1 @@
+Project is about reviewing all Python concepts learned in the program so far.
