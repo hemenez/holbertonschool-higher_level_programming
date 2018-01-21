@@ -104,3 +104,16 @@ class Rectangle(Base):
         str2 = str(self.y) + str(' - ')
         str3 = str(self.width) + '/' + str(self.height)
         return str1 + str2 + str3
+
+    def update(self, *args):
+        """Method assigns new argument to each attribute
+        """
+        try:
+            for arg in args:
+                self.id = args[0]
+                self.width = args[1]
+                self.height = args[2]
+                self.x = args[3]
+                self.y = args[4]
+        except IndexError:
+            pass
