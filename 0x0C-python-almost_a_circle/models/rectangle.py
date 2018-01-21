@@ -90,7 +90,9 @@ class Rectangle(Base):
     def display(self):
         """Method prints Rectangle instance with a hashtag character
         """
+        print('\n' * self.y, end="")
         for first in range(self.height):
+            print(' ' * self.x, end="")
             for second in range(self.width):
                 print('#', end="")
             print()
