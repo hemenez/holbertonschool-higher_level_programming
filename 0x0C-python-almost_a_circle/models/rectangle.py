@@ -94,3 +94,11 @@ class Rectangle(Base):
             for second in range(self.width):
                 print('#', end="")
             print()
+
+    def __str__(self):
+        """Method returns string representation of object
+        """
+        str1 = '[Rectangle] ' + '(' + str(self.id) + ') ' + str(self.x) + '/'
+        str2 = str(self.y) + str(' - ')
+        str3 = str(self.width) + '/' + str(self.height)
+        return str1 + str2 + str3
