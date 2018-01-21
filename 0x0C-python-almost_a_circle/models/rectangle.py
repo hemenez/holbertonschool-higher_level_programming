@@ -86,3 +86,11 @@ class Rectangle(Base):
         """Method returns area value of a Rectangle instance
         """
         return self.width * self.height
+
+    def display(self):
+        """Method prints Rectangle instance with a hashtag character
+        """
+        for first in range(self.height):
+            for second in range(self.width):
+                print('#', end="")
+            print()
