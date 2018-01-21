@@ -9,6 +9,10 @@ class Rectangle(Base):
         """Method initializes values for rectangle class
         """
         super(Rectangle, self).__init__(id)
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
     @property
     def width(self):
@@ -20,7 +24,12 @@ class Rectangle(Base):
     def width(self, value):
         """Method sets value of width attribute
         """
-        self.__width = value
+        if type(value) is not int:
+            raise TypeError('width must be an integer')
+        if value <= 0:
+            raise ValueError('width must be > 0')
+        else:
+            self.__width = value
 
     @property
     def height(self):
@@ -32,7 +41,12 @@ class Rectangle(Base):
     def height(self, value):
         """Method sets value of height attribute
         """
-        self.__height = value
+        if type(value) is not int:
+            raise TypeError('height must be an integer')
+        if value <= 0:
+            raise ValueError('height must be > 0')
+        else:
+            self.__height = value
 
     @property
     def x(self):
@@ -44,7 +58,12 @@ class Rectangle(Base):
     def x(self, value):
         """Method sets value of x attribute
         """
-        self.__x = value
+        if type(value) is not int:
+            raise TypeError('x must be an integer')
+        if value < 0:
+            raise ValueError('x must be >= 0')
+        else:
+            self.__x = value
 
     @property
     def y(self):
@@ -56,4 +75,9 @@ class Rectangle(Base):
     def y(self, value):
         """Method sets value of y attribute
         """
-        self.__y = value
+        if type(value) is not int:
+            raise TypeError('y must be an integer')
+        if value < 0:
+            raise ValueError('y must be >= 0')
+        else:
+            self.__y = value
