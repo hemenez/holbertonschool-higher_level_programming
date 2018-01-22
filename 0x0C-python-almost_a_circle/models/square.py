@@ -35,3 +35,31 @@ class Square(Rectangle):
         str1 = '[Square] ' + '(' + str(self.id) + ') ' + str(self.x) + '/'
         str2 = str(self.y) + str(' - ') + str(self.width)
         return str1 + str2
+
+    def update(self, *args, **kwargs):
+        """Method assigns new argument to each attribute
+        """
+        if len(args) == 1:
+            self.id = args[0]
+        if len(args) == 2:
+            self.id = args[0]
+            self.size = args[1]
+        if len(args) == 3:
+            self.id = args[0]
+            self.size = args[1]
+            self.x = args[2]
+        if len(args) == 4:
+            self.id = args[0]
+            self.size = args[1]
+            self.x = args[2]
+            self.y = args[3]
+        else:
+            for key, value in kwargs.items():
+                if key == "id":
+                    self.id = value
+                if key == "size":
+                    self.size = value
+                if key == "x":
+                    self.x = value
+                if key == "y":
+                    self.y = value
