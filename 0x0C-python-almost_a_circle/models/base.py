@@ -53,3 +53,14 @@ class Base:
                 final_list.append(final_dict)
         with open(cls.__name__ + ".json", 'w+', encoding="UTF-8") as f:
             f.write(Base.to_json_string(final_list))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """Method returns the list of a JSON string represtnation of
+        the given object, json_string
+        """
+        my_list = []
+        if json_string is None or json_string == "[]":
+            return my_list
+        my_list = json.loads(json_string)
+        return my_list
