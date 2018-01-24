@@ -5,6 +5,7 @@ import unittest
 import io
 import sys
 from models.rectangle import Rectangle
+from models.base import Base
 
 class TestBaseClass(unittest.TestCase):
     """Utilizes unittest to evaluate possible outcomes of
@@ -87,181 +88,236 @@ class TestBaseClass(unittest.TestCase):
             r5.area()
 
     def test_display_method1(self):
-        if __name__ == "__main__":
-            capturedOutput = io.StringIO()
-            sys.stdout = capturedOutput
-            r1 = Rectangle(4, 6)
-            rl.display()
-            sys.stdout = sys.__stdout__
-            desired = '####\n####\n####\n####\n####\n####'
-            print(desired, capturedOutput.getvalue())
+        capturedOutput = io.StringIO()
+        sys.stdout = capturedOutput
+        r1 = Rectangle(4, 6)
+        r1.display()
+        sys.stdout = sys.__stdout__
+        desired = '####\n####\n####\n####\n####\n####\n'
+        self.assertEqual(capturedOutput.getvalue(), desired)
 
     def test_display_method2(self):
-        if __name__ == "__main__":
-            capturedOutput = io.StringIO()
-            sys.stdout = capturedOutput
-            r2 = Rectangle(2, 2)
-            r2.display()
-            sys.stdout = sys.__stdout__
-            desired = '##\n##\n'
-            print(desired, capturedOutput.getvalue())
+        capturedOutput = io.StringIO()
+        sys.stdout = capturedOutput
+        r2 = Rectangle(2, 2)
+        r2.display()
+        sys.stdout = sys.__stdout__
+        desired = '##\n##\n'
+        self.assertEqual(capturedOutput.getvalue(), desired)
 
     def test_display_method3(self):
-        if __name__ == "__main__":
-            with self.assertRaises(ValueError):
-                capturedOutput = io.StringIO()
-                sys.stdout = capturedOutput
-                r3 = Rectangle(-1, 2)
-                r3.display()
-                sys.stdout = sys.__stdout__
-
-    def test_display_method4(self):
-        if __name__ == "__main__":
-            with self.assertRaises(TypeError):
-                capturedOutput = io.StringIO()
-                sys.stdout = capturedOutput
-                r4 = Rectangle(5, 6, 7, 8, 9, 10, 11)
-                r4.display()
-                sys.stdout = sys.__stdout__
-
-    def test_str1(self):
-        if __name__ == "__main__":
-            r1 = Rectangle(4, 6, 2, 1, 12)
-            str_r1 = "[Rectangle] (12) 2/1 - 4/6"
-            self.assertEqual(print(r1), str_r1)
-
-    def test_str2(self):
-        if __name__ == "__main__":
-            r2 = Rectangle(5, 5, 1)
-            str_r2 = "[Rectangle] (1) 1/0 - 5/5"
-            self.assertEqual(print(r2), str_r2)
-
-    def test_str3(self):
-        if __name__ == "__main__":
-            r3 = Rectangle(1, 2, 3, 4, 5)
-            str_r3 = "[Rectangle] (5) 3/4 - 1/2"
-            self.assertEqual(print(r3), str_r3)
-
-    def test_str4(self):
-        if __name__ == "__main__":
-            with self.assertRaises(TypeError):
-                r4 = Rectangle(1, 1, 1, 1, 1, 1, 1, 1)
-
-    def test_str5(self):
-        if __name__ == "__main__":
-            with self.assertRaises(ValueError):
-                r5 = Rectangle(-1, 2)
-
-    def test_str6(self):
-        if __name__ == "__main__":
-            with self.assertRaises(TypeError):
-                r6 = Rectangle("hey", "there")
-
-    def test_updated_display1(self):
-        if __name__ == "__main__":
+#        if __name__ == "__main__":
+        with self.assertRaises(ValueError):
             capturedOutput = io.StringIO()
             sys.stdout = capturedOutput
-            r1 = Rectangle(2, 3, 2, 2)
-            r1.display()
-            sys.stdout = sys.__stdout__
-            desired = '\n\n  ##\n  ##\n  ##\n'
-            print(desired, capturedOutput.getvalue())
-
-    def test_updated_display2(self):
-        if __name__ == "__main__":
-            capturedOutput = io.StringIO()
-            sys.stdout = capturedOutput
-            r2 = Rectangle(3, 2, 1, 0)
-            r2.display()
-            sys.stdout = sys.__stdout__
-            desired = ' ###\n ###\n'
-            print(desired, capturedOutput.getvalue())
-
-    def test_updated_display3(self):
-        if __name__ == "__main__":
-            capturedOutput = io.StringIO()
-            sys.stdout = capturedOutput
-            r3 = Rectangle(3, 2, 0, 1)
+            r3 = Rectangle(-1, 2)
             r3.display()
             sys.stdout = sys.__stdout__
-            desired = '\n###\n###\n'
-            print(desired, capturedOutput.getvalue())
 
-    def test_updated_display4(self):
-        if __name__ == "__main__":
+    def test_display_method4(self):
+# if __name__ == "__main__":
+        with self.assertRaises(TypeError):
             capturedOutput = io.StringIO()
             sys.stdout = capturedOutput
-            r4 = Rectangle(3, 2, 0, 0)
+            r4 = Rectangle(5, 6, 7, 8, 9, 10, 11)
             r4.display()
             sys.stdout = sys.__stdout__
-            desired = '###\n###\n'
-            print(desired, capturedOutput.getvalue())
+
+    def test_str1(self):
+#        if __name__ == "__main__":
+        capturedOutput = io.StringIO()
+        sys.stdout = capturedOutput
+        r1 = Rectangle(4, 6, 2, 1, 12)
+        print(r1)
+        sys.stdout = sys.__stdout__
+        str_r1 = "[Rectangle] (12) 2/1 - 4/6\n"
+        self.assertEqual(capturedOutput.getvalue(), str_r1)
+
+    def test_str2(self):
+#        if __name__ == "__main__":
+        capturedOutput = io.StringIO()
+        sys.stdout = capturedOutput
+        r2 = Rectangle(5, 5, 1)
+        print(r2)
+        sys.stdout = sys.__stdout__
+        str_r2 = "[Rectangle] (7) 1/0 - 5/5\n"
+        self.assertEqual(capturedOutput.getvalue(), str_r2)
+
+    def test_str3(self):
+#        if __name__ == "__main__":
+        capturedOutput = io.StringIO()
+        sys.stdout = capturedOutput
+        r3 = Rectangle(1, 2, 3, 4, 5)
+        print(r3)
+        sys.stdout = sys.__stdout__
+        str_r3 = "[Rectangle] (5) 3/4 - 1/2\n"
+        self.assertEqual(capturedOutput.getvalue(), str_r3)
+
+    def test_str4(self):
+        #if __name__ == "__main__":
+        with self.assertRaises(TypeError):
+            r4 = Rectangle(1, 1, 1, 1, 1, 1, 1, 1)
+
+    def test_str5(self):
+#        if __name__ == "__main__":
+        with self.assertRaises(ValueError):
+            r5 = Rectangle(-1, 2)
+
+    def test_str6(self):
+#        if __name__ == "__main__":
+        with self.assertRaises(TypeError):
+            r6 = Rectangle("hey", "there")
+
+    def test_updated_display1(self):
+#        if __name__ == "__main__":
+        capturedOutput = io.StringIO()
+        sys.stdout = capturedOutput
+        r1 = Rectangle(2, 3, 2, 2)
+        r1.display()
+        sys.stdout = sys.__stdout__
+        desired = '\n\n  ##\n  ##\n  ##\n'
+        self.assertEqual(capturedOutput.getvalue(), desired)
+
+    def test_updated_display2(self):
+#        if __name__ == "__main__":
+        capturedOutput = io.StringIO()
+        sys.stdout = capturedOutput
+        r2 = Rectangle(3, 2, 1, 0)
+        r2.display()
+        sys.stdout = sys.__stdout__
+        desired = ' ###\n ###\n'
+        self.assertEqual(capturedOutput.getvalue(), desired)
+
+    def test_updated_display3(self):
+#        if __name__ == "__main__":
+        capturedOutput = io.StringIO()
+        sys.stdout = capturedOutput
+        r3 = Rectangle(3, 2, 0, 1)
+        r3.display()
+        sys.stdout = sys.__stdout__
+        desired = '\n###\n###\n'
+        self.assertEqual(capturedOutput.getvalue(), desired)
+
+    def test_updated_display4(self):
+#        if __name__ == "__main__":
+        capturedOutput = io.StringIO()
+        sys.stdout = capturedOutput
+        r4 = Rectangle(3, 2, 0, 0)
+        r4.display()
+        sys.stdout = sys.__stdout__
+        desired = '###\n###\n'
+        self.assertEqual(capturedOutput.getvalue(), desired)
 
     def test_update_attribute_method1(self):
-        if __name__ == "__main__":
-            r1 = Rectangle(10, 10, 10, 10)
-            r1_str1 = "[Rectangle] (1) 10/10 - 10/10"
-            self.assertEqual(print(r1), r1_str1)
+#        if __name__ == "__main__":
+        capturedOutput = io.StringIO()
+        sys.stdout = capturedOutput
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update()
+        print(r1)
+        sys.stdout = sys.__stdout__
+        r1_str1 = "[Rectangle] (10) 10/10 - 10/10\n"
+        self.assertEqual(capturedOutput.getvalue(), r1_str1)
 
     def test_update_attribute_method12(self):
-        if __name__ == "__main__":
-            r1 = Rectangle(10, 10, 10, 10)
-            r1_str2 = "Rectangle] (89) 10/10 - 10/10"
-            self.assertEqual(rl.update(89), r1_str2)
+#        if __name__ == "__main__":
+        capturedOutput = io.StringIO()
+        sys.stdout = capturedOutput
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(89)
+        print(r1)
+        sys.stdout = sys.__stdout__
+        r1_str2 = "[Rectangle] (89) 10/10 - 10/10\n"
+        self.assertEqual(capturedOutput.getvalue(), r1_str2)
 
     def test_update_attribute_method3(self):
-        if __name__ == "__main__":
-            r1 = Rectangle(10, 10, 10, 10)
-            r1_str3 = "[Rectangle] (89) 10/10 - 2/10"
-            self.assertEqual(r1.update(89, 2), r1_str3)
+#        if __name__ == "__main__":
+        capturedOutput = io.StringIO()
+        sys.stdout = capturedOutput
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(89, 2)
+        print(r1)
+        sys.stdout = sys.__stdout__
+        r1_str3 = "[Rectangle] (89) 10/10 - 2/10\n"
+        self.assertEqual(capturedOutput.getvalue(), r1_str3)
 
     def test_update_attribute_method4(self):
-        if __name__ == "__main__":
-            r1 = Rectangle(10, 10, 10, 10)
-            r1_str4 = "[Rectangle] (89) 10/10 - 2/3"
-            self.assertEqual(r1.update(89, 2, 3), r1_str4)
+#        if __name__ == "__main__":
+        capturedOutput = io.StringIO()
+        sys.stdout = capturedOutput
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(89, 2, 3)
+        print(r1)
+        sys.stdout = sys.__stdout__
+        r1_str4 = "[Rectangle] (89) 10/10 - 2/3\n"
+        self.assertEqual(capturedOutput.getvalue(), r1_str4)
 
     def test_update_attribute_method5(self):
-        if __name__ == "__main__":
-            r1 = Rectangle(10, 10, 10, 10)
-            r1_str5 = "[Rectangle] (89) 4/10 - 2/3"
-            self.assertEqual(rl.update(89, 2, 3, 4), r1_str5)
+#        if __name__ == "__main__":
+        capturedOutput = io.StringIO()
+        sys.stdout = capturedOutput
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(89, 2, 3, 4)
+        print(r1)
+        sys.stdout = sys.__stdout__
+        r1_str5 = "[Rectangle] (89) 4/10 - 2/3\n"
+        self.assertEqual(capturedOutput.getvalue(), r1_str5)
 
     def test_update_attribute_method6(self):
-        if __name__ == "__main__":
-            r1 = Rectangle(10, 10, 10, 10)
-            r1_str6 = "[Rectangle] (89) 4/5 - 2/3"
-            self.assertEqual(rl.update(89, 2, 3, 4, 5), r1_str6)
+#        if __name__ == "__main__":
+        capturedOutput = io.StringIO()
+        sys.stdout = capturedOutput
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(89, 2, 3, 4, 5)
+        print(r1)
+        sys.stdout = sys.__stdout__
+        r1_str6 = "[Rectangle] (89) 4/5 - 2/3\n"
+        self.assertEqual(capturedOutput.getvalue(), r1_str6)
 
     def test_update_attribute_method6(self):
-        if __name__ == "__main__":
-            r1 = Rectangle(10, 10, 10, 10)
-            r1_str7 = "[Rectangle] (89) 4/5 - 2/3"
-            self.assertEqual(rl.update(), r1_str7)
+#        if __name__ == "__main__":
+        capturedOutput = io.StringIO()
+        sys.stdout = capturedOutput
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update()
+        print(r1)
+        sys.stdout = sys.__stdout__
+        r1_str7 = "[Rectangle] (16) 10/10 - 10/10\n"
+        self.assertEqual(capturedOutput.getvalue(), r1_str7)
 
     def test_update_attribute_method7(self):
-        if __name__ == "__main__":
+#        if __name__ == "__main__":
+            capturedOutput = io.StringIO()
+            sys.stdout = capturedOutput
             r1 = Rectangle(10, 10, 10, 10)
-            r1_str8 = "[Rectangle] (45) 2/4 - 23/1"
-            self.assertEqual(r1.update(45, 23, 1, 2, 4, 7, 8, 9), r1_str8)
+            r1.update(45, 23, 1, 2, 4, 7, 8, 9)
+            print(r1)
+            sys.stdout = sys.__stdout__
+            r1_str8 = "[Rectangle] (45) 2/4 - 23/1\n"
+            self.assertEqual(capturedOutput.getvalue(), r1_str8)
 
     def test_update_attribute_method8(self):
-        if __name__ == "__main__":
-            with self.assertRaises(ValueError):
-                r1 = Rectangle(10, 10, 10, 10)
-                r1.update(2, -3)
+#        if __name__ == "__main__":
+        with self.assertRaises(ValueError):
+            r1 = Rectangle(10, 10, 10, 10)
+            r1.update(2, -3)
 
     def test_update_attribute_method9(self):
-        if __name__ == "__main__":
-            with self.assertRaises(TypeError):
-                r1 = Rectangle(10, 10, 10, 10)
-                r1.update("put", "new")
+#        if __name__ == "__main__":
+        with self.assertRaises(TypeError):
+            r1 = Rectangle(10, 10, 10, 10)
+            r1.update("put", "new")
 
     def test_update_attribute_method10(self):
-        if __name__ == "__main__":
-            r1 = Rectangle(10, 10, 10, 10)
-            rl_str9 = "[Rectangle] (42) 4/10 - 2/3"
-            self.assertEqual(r1.update(42, x=7, y=6))
+#        if __name__ == "__main__":
+        capturedOutput = io.StringIO()
+        sys.stdout = capturedOutput
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(42, x=7, y=6)
+        print(r1)
+        sys.stdout = sys.__stdout__
+        r1_str9 = "[Rectangle] (42) 10/10 - 10/10\n"
+        self.assertEqual(capturedOutput.getvalue(), r1_str9)
 
 if __name__ == '__main__':
     unittest.main()
