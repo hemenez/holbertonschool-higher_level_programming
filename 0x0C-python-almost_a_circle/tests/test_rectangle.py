@@ -15,7 +15,7 @@ class TestBaseClass(unittest.TestCase):
     def test_value_init1(self):
         """tests initialization value, if id updates"""
         rect_1 = Rectangle(10, 1)
-        self.assertEqual(rect_1.id, 24)
+        self.assertEqual(rect_1.id, 22)
 
     def test_value_init2(self):
         """tests whether height value inits correctly"""
@@ -25,7 +25,7 @@ class TestBaseClass(unittest.TestCase):
     def test_value_init3(self):
         """tests if id updates correctly"""
         rect_2 = Rectangle(1, 10)
-        self.assertEqual(rect_2.id, 31)
+        self.assertEqual(rect_2.id, 29)
 
     def test_value_init4(self):
         """tests if id inits correctly"""
@@ -161,7 +161,7 @@ class TestBaseClass(unittest.TestCase):
         """checks whether string dunder method works"""
         capturedOutput = io.StringIO()
         sys.stdout = capturedOutput
-        r2 = Rectangle(5, 5, 1)
+        r2 = Rectangle(5, 5, 1, 0, 7)
         print(r2)
         sys.stdout = sys.__stdout__
         str_r2 = "[Rectangle] (7) 1/0 - 5/5\n"
@@ -236,7 +236,7 @@ class TestBaseClass(unittest.TestCase):
         """checks whether update method updates attributes properly"""
         capturedOutput = io.StringIO()
         sys.stdout = capturedOutput
-        r1 = Rectangle(10, 10, 10, 10)
+        r1 = Rectangle(10, 10, 10, 10, 10)
         r1.update()
         print(r1)
         sys.stdout = sys.__stdout__
@@ -247,7 +247,7 @@ class TestBaseClass(unittest.TestCase):
         """checks whether update method updates attributes properly"""
         capturedOutput = io.StringIO()
         sys.stdout = capturedOutput
-        r1 = Rectangle(10, 10, 10, 10)
+        r1 = Rectangle(10, 10, 10, 10, 1)
         r1.update(89)
         print(r1)
         sys.stdout = sys.__stdout__
@@ -302,7 +302,7 @@ class TestBaseClass(unittest.TestCase):
         """checks whether update method updates attributes properly"""
         capturedOutput = io.StringIO()
         sys.stdout = capturedOutput
-        r1 = Rectangle(10, 10, 10, 10)
+        r1 = Rectangle(10, 10, 10, 10, 16)
         r1.update()
         print(r1)
         sys.stdout = sys.__stdout__
@@ -311,14 +311,14 @@ class TestBaseClass(unittest.TestCase):
 
     def test_update_attribute_method7(self):
         """checks whether update method updates attributes properly"""
-            capturedOutput = io.StringIO()
-            sys.stdout = capturedOutput
-            r1 = Rectangle(10, 10, 10, 10)
-            r1.update(45, 23, 1, 2, 4, 7, 8, 9)
-            print(r1)
-            sys.stdout = sys.__stdout__
-            r1_str8 = "[Rectangle] (45) 2/4 - 23/1\n"
-            self.assertEqual(capturedOutput.getvalue(), r1_str8)
+        capturedOutput = io.StringIO()
+        sys.stdout = capturedOutput
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(45, 23, 1, 2, 4, 7, 8, 9)
+        print(r1)
+        sys.stdout = sys.__stdout__
+        r1_str8 = "[Rectangle] (45) 2/4 - 23/1\n"
+        self.assertEqual(capturedOutput.getvalue(), r1_str8)
 
     def test_update_attribute_method8(self):
         """raises value error if negative value passed"""
