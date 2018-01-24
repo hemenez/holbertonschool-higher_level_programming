@@ -1,10 +1,15 @@
 #!/usr/bin/python3
+"""Base module"""
+
 import json
+import os
+
 
 class Base:
     """class Base
     """
     __nb_objects = 0
+
     def __init__(self, id=None):
         """Method initializes values for class Base
         """
@@ -64,3 +69,35 @@ class Base:
             return my_list
         my_list = json.loads(json_string)
         return my_list
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Method returns an instance with all attributes already set.
+        The value "**dictionary" represents a double pointer to a dictionary.
+        This  method calls the update method to apply real values to attributes
+        """
+        args = []
+        if cls.__name__ == "Rectangle":
+            r1 = cls(10, 1)
+            r1.update(cls, *args, **dictionary)
+            return r1
+        if cls.__name__ == "Square":
+            s1 = cls(10)
+            s1.update(cls, *args, **dictionary)
+            return s1
+
+    @classmethod
+    def load_from_file(cls):
+        """Method returns a list of instances of a class
+        """
+        my_list = []
+        filename = cls.__name__ + ".json"
+        try:
+            with open(filename, "r", encoding="UTF-8") as f:
+                list_1 = f.read()
+                print(list_1)
+                my_list = from_json_string(json.loads(list_1))
+                return create(cls, my_list)
+        except IOError:
+            return my_list
+#        print(os.path.exists(filename))
