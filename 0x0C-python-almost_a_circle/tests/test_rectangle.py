@@ -7,6 +7,7 @@ import sys
 from models.rectangle import Rectangle
 from models.base import Base
 
+
 class TestBaseClass(unittest.TestCase):
     """Utilizes unittest to evaluate possible outcomes of
     creating instances of Base class
