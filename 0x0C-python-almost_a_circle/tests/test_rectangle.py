@@ -233,5 +233,35 @@ class TestBaseClass(unittest.TestCase):
             r1_str6 = "[Rectangle] (89) 4/5 - 2/3"
             self.assertEqual(rl.update(89, 2, 3, 4, 5), r1_str6)
 
+    def test_update_attribute_method6(self):
+        if __name__ == "__main__":
+            r1 = Rectangle(10, 10, 10, 10)
+            r1_str7 = "[Rectangle] (89) 4/5 - 2/3"
+            self.assertEqual(rl.update(), r1_str7)
+
+    def test_update_attribute_method7(self):
+        if __name__ == "__main__":
+            r1 = Rectangle(10, 10, 10, 10)
+            r1_str8 = "[Rectangle] (45) 2/4 - 23/1"
+            self.assertEqual(r1.update(45, 23, 1, 2, 4, 7, 8, 9), r1_str8)
+
+    def test_update_attribute_method8(self):
+        if __name__ == "__main__":
+            with self.assertRaises(ValueError):
+                r1 = Rectangle(10, 10, 10, 10)
+                r1.update(2, -3)
+
+    def test_update_attribute_method9(self):
+        if __name__ == "__main__":
+            with self.assertRaises(TypeError):
+                r1 = Rectangle(10, 10, 10, 10)
+                r1.update("put", "new")
+
+    def test_update_attribute_method10(self):
+        if __name__ == "__main__":
+            r1 = Rectangle(10, 10, 10, 10)
+            rl_str9 = "[Rectangle] (42) 4/10 - 2/3"
+            self.assertEqual(r1.update(42, x=7, y=6))
+
 if __name__ == '__main__':
     unittest.main()
