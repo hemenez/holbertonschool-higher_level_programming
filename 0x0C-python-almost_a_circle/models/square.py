@@ -1,7 +1,9 @@
 #!/usr/bin/python
+"""Square module"""
 
 from models.base import Base
 from models.rectangle import Rectangle
+
 
 class Square(Rectangle):
     """Class square inherits from Rectangle class
