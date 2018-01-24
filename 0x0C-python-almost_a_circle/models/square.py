@@ -41,16 +41,16 @@ class Square(Rectangle):
     def update(self, *args, **kwargs):
         """Method assigns new argument to each attribute
         """
-        if len(args) == 1:
+        if len(args) > 0:
             self.id = args[0]
-        if len(args) == 2:
+        if len(args) > 1:
             self.id = args[0]
             self.size = args[1]
-        if len(args) == 3:
+        if len(args) > 2:
             self.id = args[0]
             self.size = args[1]
             self.x = args[2]
-        if len(args) == 4:
+        if len(args) > 3:
             self.id = args[0]
             self.size = args[1]
             self.x = args[2]
