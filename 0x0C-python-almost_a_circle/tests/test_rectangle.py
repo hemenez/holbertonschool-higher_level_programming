@@ -12,17 +12,17 @@ class TestBaseClass(unittest.TestCase):
     """Utilizes unittest to evaluate possible outcomes of
     creating instances of Base class
     """
-#    def test_value_init1(self):
-#        rect_1 = Rectangle(10, 1)
-#        self.assertEqual(rect_1.id, 1)
+    def test_value_init1(self):
+        rect_1 = Rectangle(10, 1)
+        self.assertEqual(rect_1.id, 24)
 
     def test_value_init2(self):
         rect_1 = Rectangle(10, 1)
         self.assertEqual(rect_1.height, 1)
 
-#    def test_value_init3(self):
-#        rect_2 = Rectangle(1, 10)
-#        self.assertEqual(rect_2.id, 7)
+    def test_value_init3(self):
+        rect_2 = Rectangle(1, 10)
+        self.assertEqual(rect_2.id, 31)
 
     def test_value_init4(self):
         rect_3 = Rectangle(10, 1, 0, 0, 4)
@@ -107,7 +107,6 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(capturedOutput.getvalue(), desired)
 
     def test_display_method3(self):
-#        if __name__ == "__main__":
         with self.assertRaises(ValueError):
             capturedOutput = io.StringIO()
             sys.stdout = capturedOutput
@@ -116,7 +115,6 @@ class TestBaseClass(unittest.TestCase):
             sys.stdout = sys.__stdout__
 
     def test_display_method4(self):
-# if __name__ == "__main__":
         with self.assertRaises(TypeError):
             capturedOutput = io.StringIO()
             sys.stdout = capturedOutput
@@ -125,7 +123,6 @@ class TestBaseClass(unittest.TestCase):
             sys.stdout = sys.__stdout__
 
     def test_str1(self):
-#        if __name__ == "__main__":
         capturedOutput = io.StringIO()
         sys.stdout = capturedOutput
         r1 = Rectangle(4, 6, 2, 1, 12)
@@ -135,7 +132,6 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(capturedOutput.getvalue(), str_r1)
 
     def test_str2(self):
-#        if __name__ == "__main__":
         capturedOutput = io.StringIO()
         sys.stdout = capturedOutput
         r2 = Rectangle(5, 5, 1)
@@ -145,7 +141,6 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(capturedOutput.getvalue(), str_r2)
 
     def test_str3(self):
-#        if __name__ == "__main__":
         capturedOutput = io.StringIO()
         sys.stdout = capturedOutput
         r3 = Rectangle(1, 2, 3, 4, 5)
@@ -155,22 +150,18 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(capturedOutput.getvalue(), str_r3)
 
     def test_str4(self):
-        #if __name__ == "__main__":
         with self.assertRaises(TypeError):
             r4 = Rectangle(1, 1, 1, 1, 1, 1, 1, 1)
 
     def test_str5(self):
-#        if __name__ == "__main__":
         with self.assertRaises(ValueError):
             r5 = Rectangle(-1, 2)
 
     def test_str6(self):
-#        if __name__ == "__main__":
         with self.assertRaises(TypeError):
             r6 = Rectangle("hey", "there")
 
     def test_updated_display1(self):
-#        if __name__ == "__main__":
         capturedOutput = io.StringIO()
         sys.stdout = capturedOutput
         r1 = Rectangle(2, 3, 2, 2)
@@ -180,7 +171,6 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(capturedOutput.getvalue(), desired)
 
     def test_updated_display2(self):
-#        if __name__ == "__main__":
         capturedOutput = io.StringIO()
         sys.stdout = capturedOutput
         r2 = Rectangle(3, 2, 1, 0)
@@ -190,7 +180,6 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(capturedOutput.getvalue(), desired)
 
     def test_updated_display3(self):
-#        if __name__ == "__main__":
         capturedOutput = io.StringIO()
         sys.stdout = capturedOutput
         r3 = Rectangle(3, 2, 0, 1)
@@ -200,7 +189,6 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(capturedOutput.getvalue(), desired)
 
     def test_updated_display4(self):
-#        if __name__ == "__main__":
         capturedOutput = io.StringIO()
         sys.stdout = capturedOutput
         r4 = Rectangle(3, 2, 0, 0)
@@ -210,7 +198,6 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(capturedOutput.getvalue(), desired)
 
     def test_update_attribute_method1(self):
-#        if __name__ == "__main__":
         capturedOutput = io.StringIO()
         sys.stdout = capturedOutput
         r1 = Rectangle(10, 10, 10, 10)
@@ -221,7 +208,6 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(capturedOutput.getvalue(), r1_str1)
 
     def test_update_attribute_method12(self):
-#        if __name__ == "__main__":
         capturedOutput = io.StringIO()
         sys.stdout = capturedOutput
         r1 = Rectangle(10, 10, 10, 10)
@@ -232,7 +218,6 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(capturedOutput.getvalue(), r1_str2)
 
     def test_update_attribute_method3(self):
-#        if __name__ == "__main__":
         capturedOutput = io.StringIO()
         sys.stdout = capturedOutput
         r1 = Rectangle(10, 10, 10, 10)
@@ -243,7 +228,6 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(capturedOutput.getvalue(), r1_str3)
 
     def test_update_attribute_method4(self):
-#        if __name__ == "__main__":
         capturedOutput = io.StringIO()
         sys.stdout = capturedOutput
         r1 = Rectangle(10, 10, 10, 10)
@@ -254,7 +238,6 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(capturedOutput.getvalue(), r1_str4)
 
     def test_update_attribute_method5(self):
-#        if __name__ == "__main__":
         capturedOutput = io.StringIO()
         sys.stdout = capturedOutput
         r1 = Rectangle(10, 10, 10, 10)
@@ -265,7 +248,6 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(capturedOutput.getvalue(), r1_str5)
 
     def test_update_attribute_method6(self):
-#        if __name__ == "__main__":
         capturedOutput = io.StringIO()
         sys.stdout = capturedOutput
         r1 = Rectangle(10, 10, 10, 10)
@@ -276,7 +258,6 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(capturedOutput.getvalue(), r1_str6)
 
     def test_update_attribute_method6(self):
-#        if __name__ == "__main__":
         capturedOutput = io.StringIO()
         sys.stdout = capturedOutput
         r1 = Rectangle(10, 10, 10, 10)
@@ -287,7 +268,6 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(capturedOutput.getvalue(), r1_str7)
 
     def test_update_attribute_method7(self):
-#        if __name__ == "__main__":
             capturedOutput = io.StringIO()
             sys.stdout = capturedOutput
             r1 = Rectangle(10, 10, 10, 10)
@@ -298,19 +278,16 @@ class TestBaseClass(unittest.TestCase):
             self.assertEqual(capturedOutput.getvalue(), r1_str8)
 
     def test_update_attribute_method8(self):
-#        if __name__ == "__main__":
         with self.assertRaises(ValueError):
             r1 = Rectangle(10, 10, 10, 10)
             r1.update(2, -3)
 
     def test_update_attribute_method9(self):
-#        if __name__ == "__main__":
         with self.assertRaises(TypeError):
             r1 = Rectangle(10, 10, 10, 10)
             r1.update("put", "new")
 
     def test_update_attribute_method10(self):
-#        if __name__ == "__main__":
         capturedOutput = io.StringIO()
         sys.stdout = capturedOutput
         r1 = Rectangle(10, 10, 10, 10)
