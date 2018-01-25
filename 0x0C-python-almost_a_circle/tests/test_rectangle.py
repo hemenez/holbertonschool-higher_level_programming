@@ -102,7 +102,10 @@ class TestBaseClass(unittest.TestCase):
 
     def test_value_init15(self):
         """raises value error if values less than one"""
-        self.assertRaises(ValueError, Rectangle, 0, 0)
+        with self.assertRaises(ValueError) as err:
+            r1 = Rectangle(0, 0)
+        msg = "width must be > 0"
+        self.assertEqual(str(err.exception), msg)
 
     def test_value_init16(self):
         """raises type error if too many values passed"""
@@ -123,18 +126,6 @@ class TestBaseClass(unittest.TestCase):
         """checks whether area method calculates correctly"""
         r3 = Rectangle(8, 7, 0, 0, 12)
         self.assertEqual(r3.area(), 56)
-
-    def test_area4(self):
-        """raises value error if negative value passed"""
-        with self.assertRaises(ValueError):
-            r4 = Rectangle(-1, 9)
-            r4.area()
-
-    def test_area5(self):
-        """raises type error if too many values passed"""
-        with self.assertRaises(TypeError):
-            r5 = Rectangle(1, 2, 3, 4, 5, 6, 7)
-            r5.area()
 
     def test_display_method1(self):
         """tests whether display method prints"""
