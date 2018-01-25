@@ -34,39 +34,66 @@ class TestBaseClass(unittest.TestCase):
 
     def test_value_init5(self):
         """raises value error if negative width/height"""
-        self.assertRaises(ValueError, Rectangle, 10, -1)
+        with self.assertRaises(ValueError) as err:
+            r1 = Rectangle(10, -1)
+        msg = "height must be > 0"
+        self.assertEqual(str(err.exception), msg)
 
     def test_value_init6(self):
         """raises type error if non-number"""
-        self.assertRaises(TypeError, Rectangle, 10, "hi")
+        with self.assertRaises(TypeError) as err:
+            r1 = Rectangle(10, "hi")
+        msg = "height must be an integer"
+        self.assertEqual(str(err.exception), msg)
 
     def test_value_init7(self):
         """raises value error if negative width/height"""
-        self.assertRaises(ValueError, Rectangle, -4, 5)
+        with self.assertRaises(ValueError) as err:
+            r1 = Rectangle(-4, 5)
+        msg = "width must be > 0"
+        self.assertEqual(str(err.exception), msg)
 
     def test_value_init8(self):
         """raises type error if non-number"""
-        self.assertRaises(TypeError, Rectangle, "hi", 10)
+        with self.assertRaises(TypeError) as err:
+            r1 = Rectangle("hi", 10)
+        msg = "width must be an integer"
+        self.assertEqual(str(err.exception), msg)
 
     def test_value_init9(self):
         """raises type error if non-number"""
-        self.assertRaises(TypeError, Rectangle, [1, 2], 8)
+        with self.assertRaises(TypeError) as err:
+            r1 = Rectangle([1, 2], 8)
+        msg = "width must be an integer"
+        self.assertEqual(str(err.exception), msg)
 
     def test_value_init10(self):
         """raises value error if negative number"""
-        self.assertRaises(ValueError, Rectangle, 10, 2, 3, -1)
+        with self.assertRaises(ValueError) as err:
+            r1 = Rectangle(10, 2, 3, -1)
+        msg = "y must be >= 0"
+        self.assertEqual(str(err.exception), msg)
 
     def test_value_init11(self):
         """raises value error if non-number"""
-        self.assertRaises(TypeError, Rectangle, 10, 2, {})
+        with self.assertRaises(TypeError) as err:
+            r1 = Rectangle(10, 2, {})
+        msg = "x must be an integer"
+        self.assertEqual(str(err.exception), msg)
 
     def test_value_init12(self):
         """raises value error if negative number"""
-        self.assertRaises(ValueError, Rectangle, 10, 1, 17, -9)
+        with self.assertRaises(ValueError) as err:
+            r1 = Rectangle(10, 1, 17, -9)
+        msg = "y must be >= 0"
+        self.assertEqual(str(err.exception), msg)
 
     def test_value_init13(self):
         """raises type error if non-number"""
-        self.assertRaises(TypeError, Rectangle, 1, (1, 2), 3)
+        with self.assertRaises(TypeError) as err:
+            r1 = Rectangle(1, (1, 2), 3)
+        msg = "height must be an integer"
+        self.assertEqual(str(err.exception), msg)
 
     def test_value_init14(self):
         """tests whether width is initialized correctly"""
