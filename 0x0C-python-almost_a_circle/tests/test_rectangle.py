@@ -15,7 +15,7 @@ class TestBaseClass(unittest.TestCase):
     def test_value_init1(self):
         """tests initialization value, if id updates"""
         rect_1 = Rectangle(10, 1)
-        self.assertEqual(rect_1.id, 22)
+        self.assertEqual(rect_1.id, 21)
 
     def test_value_init2(self):
         """tests whether height value inits correctly"""
@@ -25,7 +25,7 @@ class TestBaseClass(unittest.TestCase):
     def test_value_init3(self):
         """tests if id updates correctly"""
         rect_2 = Rectangle(1, 10)
-        self.assertEqual(rect_2.id, 29)
+        self.assertEqual(rect_2.id, 28)
 
     def test_value_init4(self):
         """tests if id inits correctly"""
