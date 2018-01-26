@@ -53,6 +53,34 @@ class TestSquareClass(unittest.TestCase):
         """raises type error if too many values passed"""
         self.assertRaises(TypeError, Square, 2, 4, 6, 8, 10, 12)
 
+    def test_value_init7(self):
+        """raises type error if non-number is passed"""
+        with self.assertRaises(TypeError) as err:
+            s1 = Square(1, "98")
+        msg = "x must be an integer"
+        self.assertEqual(str(err.exception), msg)
+
+    def test_value_init8(self):
+        """raises type error if non-number is passed"""
+        with self.assertRaises(TypeError) as err:
+            s1 = Square(10, 9, "8")
+        msg = "y must be an integer"
+        self.assertEqual(str(err.exception), msg)
+
+    def test_value_init9(self):
+        """raises value error if neg number is passed"""
+        with self.assertRaises(ValueError) as err:
+            s1 = Square(1, -2)
+        msg = "x must be >= 0"
+        self.assertEqual(str(err.exception), msg)
+
+    def test_value_init10(self):
+        """raises value error if neg value is passed"""
+        with self.assertRaises(ValueError) as err:
+            s1 = Square(2, 3, -4)
+        msg = "y must be >= 0"
+        self.assertEqual(str(err.exception), msg)
+
     def test_area1(self):
         """tests if area of square is calculated correctly"""
         sq_1 = Square(5)
