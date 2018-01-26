@@ -25,7 +25,7 @@ class TestBaseClass(unittest.TestCase):
     def test_value_init3(self):
         """tests if id updates correctly"""
         rect_2 = Rectangle(1, 10)
-        self.assertEqual(rect_2.id, 28)
+        self.assertEqual(rect_2.id, 30)
 
     def test_value_init4(self):
         """tests if id inits correctly"""
@@ -111,6 +111,20 @@ class TestBaseClass(unittest.TestCase):
         """raises type error if too many values passed"""
         with self.assertRaises(TypeError):
             rect_5 = Rectangle(1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+    def test_value_init17(self):
+        """raises type error if non-number value is passed"""
+        with self.assertRaises(TypeError) as err:
+            r1 = Rectangle(1, 2, 3, "hi")
+        msg = "y must be an integer"
+        self.assertEqual(str(err.exception), msg)
+
+    def test_value_init18(self):
+        """raises value error if zero value is passed"""
+        with self.assertRaises(ValueError) as err:
+            r1 = Rectangle(0, 19)
+        msg = "width must be > 0"
+        self.assertEqual(str(err.exception), msg)
 
     def test_area1(self):
         """checks whether area method calculates correctly"""
