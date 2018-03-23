@@ -15,6 +15,7 @@ if __name__ == "__main__":
     cur.execute("SELECT * FROM states WHERE name=%s ORDER BY id", (res,))
     my_states = cur.fetchall()
     for state in my_states:
-        print(state)
+        if state[1] == res:
+            print(state)
     cur.close()
     db.close()
