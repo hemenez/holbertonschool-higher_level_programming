@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import MySQLdb
 import sys
+import re
 if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
@@ -14,6 +15,7 @@ if __name__ == "__main__":
     cur.execute("SELECT * FROM states WHERE name REGEXP '^N' ORDER BY id")
     my_states = cur.fetchall()
     for state in my_states:
-        print(state)
+        if re.match('^N', state[1]) is not None:
+            print(state)
     cur.close()
     db.close()
