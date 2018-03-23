@@ -1,0 +1,1 @@
+This project is about working with Object-Relational mappthing w/SQLAlchemy
