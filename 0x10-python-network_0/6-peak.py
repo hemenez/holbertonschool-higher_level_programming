@@ -7,4 +7,4 @@ def find_peak(list_of_integers):
 #            if num[idx] > num[idx + 1] and num[idx] > num[idx - 1]:
 #                return num[idx]
 #        else:
-        return max(num)
+        return max(list_of_integers)
