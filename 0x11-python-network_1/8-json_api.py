@@ -8,14 +8,14 @@ if __name__ == "__main__":
         q_val = ""
     else:
         q_val = sys.argv[1]
-        response = requests.post(url, data={'q': q_val})
-    if len(response.json()) != 0:
-        try:
+    response = requests.post(url, data={'q': q_val})
+    try:
+        if len(response.json()) == 0:
+            print('No result')
+        else:
             data = response.json()
             data_id = '[' + str(data['id']) + ']'
             print(data_id, end=" ")
             print(data['name'])
-        except ValueError:
-            print('Not a valid JSON')
-    else:
-        print('No result')
+    except ValueError:
+        print('Not a valid JSON')
