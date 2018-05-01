@@ -1,5 +1,5 @@
 #!/usr/bin/node
-let firstArg = parseInt(process.argv[2])
+let firstArg = parseInt(process.argv[2]);
 function factorial (firstArg) {
   if (firstArg <= 1 || isNaN(firstArg)) {
     return 1;
