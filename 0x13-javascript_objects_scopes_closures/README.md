@@ -1,4 +1,4 @@
-# Javascript - Warm up
+# 0x13 Javascript - Objects, Scopes, and Closures
 
 ## Synopsis
 This project includes these concepts:
