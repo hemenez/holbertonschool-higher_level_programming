@@ -1,11 +1,8 @@
 #!/usr/bin/node
-const Rectangle = require('./5-square.js');
-class Square extends Rectangle {
-  constructor (size) {
-    super(size, size);
-    this.size = size;
-  }
+const inheritSquare = require('./5-square.js');
+class Square extends inheritSquare {
   charPrint (c) {
+    console.log(inheritSquare.size);
     if (c === undefined) {
       for (let index = 0; index < this.size; index++) {
         console.log('X'.repeat(this.size));
